@@ -12,7 +12,7 @@ Examples and Excercises from SQL Queries for Mere Mortals 4th Edition
 
 ##### The book is organized into VII parts, excercises and query examples begin in Part II Ch.4
 
-![alt text](https://github.com/ssoehdata/SQL_Queries_for_MereMortals/images/postgresql.jpg)
+![alt text](https://github.com/ssoehdata/SQL/images/postgresql.jpg)
 
 
 ## Table of Contents
