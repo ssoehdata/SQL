@@ -4,8 +4,8 @@
     <img src="https://github.com/ssoehdata/SQL/blob/main/postgresql.jpg" height="100">
   </a>
 
-# SQL_Queries_for_MereMortals
-Examples and Excercises from SQL Queries for Mere Mortals 4th Edition
+# SQL Queries for Mere Mortals
+Examples and Excercises from SQL Queries for Mere Mortals 4th Edition, John L. Viescas
 </div>
 
 #### Working through the examples using PostgreSQL 
