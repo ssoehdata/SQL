@@ -2,6 +2,7 @@
 <!-- Title: -->
   <a href="https://github.com/https://github.com/ssoehdata/SQL_Queries_for_MereMortals/">
     <img src="https://raw.githubusercontent.com/public/logo.svg" height="100">
+    <img src=""https://github.com/ssoehdata/SQL/blob/main/postgresql.jpg" height="100">
   </a>
 
 # SQL_Queries_for_MereMortals
