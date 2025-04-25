@@ -11,7 +11,7 @@ Examples and Excercises from SQL Queries for Mere Mortals 4th Edition
 #### Working through the examples using PostgreSQL 
 ###### (the book also provides files for MySQL, MSSQLServer and MSAccess formats).
 
-##### The book is organized into VII parts, excercises and query examples begin in Part II Ch.4
+##### Book organization is in VII parts. The excercises and query examples begin in Part II Ch.4.
 
 <!-- ![alt text](https://github.com/ssoehdata/SQL/blob/main/postgresql.jpg) -->
 
