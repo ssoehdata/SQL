@@ -1,0 +1,10 @@
+ -- Subqueries as Columnn Expressions 
+
+SELECT Orders.OrderNumber, Orders.OrderDate,
+    Orders.ShipDate,
+    (SELECT Customers.CustLastName
+    FROM Customers 
+    WHERE Customers.CustomerID = Orders.CustomerID) 
+FROM Orders 
+WHERE Orders.ShipDate = '2017-10-03'
+;

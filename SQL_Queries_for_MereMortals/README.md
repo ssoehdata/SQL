@@ -50,4 +50,3 @@ Examples and Excercises from SQL Queries for Mere Mortals 4th Edition, John L. V
 #### <ul><li>Appendix B: Schema for the Sample Databases</ul></li>
 #### <ul><li>Appendix C: Data and Time Types, Operations, and Functions</ul></li>
 #### <ul><li>Appendix D: Suggested Reading</ul></li>
-

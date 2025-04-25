@@ -1,0 +1,14 @@
+The Entity Relationships / Schemas used in the book are included as .jpg files
+These include the Bowling League Example, Entertainment Agency Example, Recipes Example, and Sales Orders Example. 
+
+Individual chapters will include 2 folders which 
+    1) have the sample queries in the book that serve as examples in the "Examples " Folders.
+    Note: Only those examples that utilize the sample databases included (i.e. where you can actually perform
+     the queries) are includeded. 
+
+and 
+    2) an "Excercises" folder for each chapter contain the questions at the end of each chapter organized as in the text 
+    by the respective database from which they derive (e.g.  The 'Sales Orders Database ' file includes problems
+     using that database).
+
+
