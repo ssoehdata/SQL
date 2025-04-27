@@ -10,7 +10,7 @@
 Working through resources for SQL
 
 </div>
-### Included:
+Included:
 <ul>
 
 <li>SQL Queries for Mere Mortals, 4th Edition</li>
