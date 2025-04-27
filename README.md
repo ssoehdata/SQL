@@ -6,8 +6,9 @@
 
 
 # SQL
-Working through resources for SQL
+
 <img src="https://github.com/ssoehdata/SQL/blob/main/postgresql.jpg" height="100">
+Working through resources for SQL
 
 </div>
 ### Included:
