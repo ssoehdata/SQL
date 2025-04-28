@@ -1,0 +1,26 @@
+-- can use COUNT to determine the number of rows or the number of Non-Null values in a result set.
+
+-- "List all customer names and a count of the orders they placed."
+
+SELECT Customers.CustFirstName, 
+Customers.CustLastName,
+(SELECT COUNT(*)
+FROM ORDERS
+WHERE Orders.CustomerID = Customers.CustomerID)
+AS CountOfOrders 
+FROM Customers
+;
+
+
+--The aggregate function Max, operates in a similar fashion, and finds the largest value in a column.
+
+-- Show me a list of customers and the last date on which they placed an order."
+
+SELECT Customers.CustFirstName,
+Customers.CustLastName,
+(SELECT COUNT(*)
+FROM ORDERS
+WHERE Orders.CustomerID = Customers.CustomerID)
+AS CountOfOrders 
+FROM Customers
+;

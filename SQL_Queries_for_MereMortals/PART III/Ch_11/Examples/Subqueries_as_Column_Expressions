@@ -8,3 +8,14 @@ SELECT Orders.OrderNumber, Orders.OrderDate,
 FROM Orders 
 WHERE Orders.ShipDate = '2017-10-03'
 ;
+
+
+
+-- this could be solved with an Inner Join (below) and the subquery example is intended to demonstrate the concept: 
+
+SELECT Orders.OrderNumber, Orders.OrderDate, Orders.ShipDate, Customers.CustLastName
+FROM Customers
+INNER JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID
+WHERE Orders.ShipDate = '2017-10-03'
+;
