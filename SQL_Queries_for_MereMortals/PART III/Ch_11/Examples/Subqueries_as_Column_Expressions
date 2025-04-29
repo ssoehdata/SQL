@@ -1,4 +1,8 @@
  -- Subqueries as Columnn Expressions 
+ 
+ -- This can be useful when you only need to pull a single value from 
+ -- another table. In this example, we only need the customers lastname from the customers data along with 
+ -- data from the orders table (order number, order date, and ship date).  
 
 SELECT Orders.OrderNumber, Orders.OrderDate,
     Orders.ShipDate,
