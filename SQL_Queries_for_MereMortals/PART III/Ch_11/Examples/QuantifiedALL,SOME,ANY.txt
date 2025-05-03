@@ -1,0 +1,34 @@
+-- Quantified: ALL, SOME, and ANY
+
+-- "Show me the recipes that have beef and garlic"
+
+SELECT Recipes.RecipeTitle
+FROM Recipes 
+WHERE Recipes.RecipeID IN 
+	(SELECT Recipe_Ingredients.RecipeID
+	FROM Recipe_Ingredients
+	WHERE Recipe_Ingredients.IngredientID = ANY 
+	(SELECT Ingredients.IngredientID
+	FROM Ingredients
+	WHERE Ingredients.IngredientName
+	IN ('Beef', 'Garlic')))
+;
+
+
+
+-- " Find all accessories that are priced greater than any clothing item" 
+
+SELECT Products.ProductName,
+	Products.RetailPrice 
+FROM Products 
+INNER JOIN Categories 
+	ON Products.CategoryID = Categories.CategoryID
+WHERE Categories.CategoryDescription = 'Accessories'
+ AND Products.RetailPrice > ALL 
+ 	(SELECT Products.RetailPrice 
+	 FROM Products 
+	 INNER JOIN Categories 
+	 	ON Products.CategoryID = Categories.CategoryID
+	 WHERE Categories.CategoryDescription = 'Clothing')
+;
+	
