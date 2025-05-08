@@ -1,0 +1,24 @@
+-- " Find all the customers who ordered a bicycle." 
+
+SELECT Customers.CustomerID,
+Customers.CustFirstName, 
+Customers.CustLastName
+FROM Customers 
+WHERE EXISTS 
+	(SELECT * 
+	FROM (ORDERS 
+	INNER JOIN Order_Details ON Orders.OrderNumber = 
+			Order_Details.OrderNumber)
+	INNER JOIN	Products	
+		ON Products.ProductNumber =	
+		   Order_Details.ProductNumber
+	WHERE Products.CategoryID = 2 
+		AND Orders.CustomerID = Customers.CustomerID)
+;
+
+
+--  Notes: Both set membership  (IN) and quantified (SOME, ANY, ALL) predicates perform 
+-- a comparison with a value expression- usually a column from the source specified in the 
+-- FROM clause of the outer query.  Sometimes it is useful to know that related row 
+-- EXISTS in the result set returned by a subquery. (this example is based on a problem 
+-- in chapter 8 using complex AND and INNER JOINs.
