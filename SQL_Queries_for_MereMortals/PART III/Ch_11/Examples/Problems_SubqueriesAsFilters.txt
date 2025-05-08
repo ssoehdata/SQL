@@ -1,0 +1,65 @@
+-- problems within the text (not the end of chapter problems)
+
+SELECT Customers.CustomerID, Customers.CustFirstName, Customers.CustLastName
+FROM Customers
+WHERE Customers.CustomerID IN 
+(SELECT Orders.CustomerID FROM ((Orders 
+INNER JOIN Order_Details
+ON Orders.OrderNumber = Order_Details.OrderNumber) 
+INNER JOIN Products
+ON Products.ProductNumber = Order_Details.ProductNumber) 
+INNER JOIN Categories
+ON Categories.CategoryID = Products.CategoryID 
+WHERE Categories.CategoryDescription = 'Bikes');
+
+
+
+--"Display customers who ordered clothing or accessories (use either 'SOME' or 'ANY')"
+
+-- Notes: For "SOME' or 'ANY' the predicate is true if the value expression on the left Does NOT
+-- equal at least one of the values in the list. 
+
+	
+SELECT  CustomerID, CustFirstName, CustLastName
+FROM  Customers
+WHERE  (CustomerID = SOME
+     (SELECT Orders.CustomerID
+      FROM ((Orders INNER JOIN Order_Details
+            ON Orders.OrderNumber = Order_Details.OrderNumber) 
+			INNER JOIN Products 
+            ON Products.ProductNumber = Order_Details.ProductNumber) 
+			INNER JOIN Categories
+            ON Categories.CategoryID = Products.CategoryID
+               WHERE  Categories.CategoryDescription = 'Clothing' 
+			   OR  Categories.CategoryDescription = 'Accessories'));
+
+--------------------------------------------------------------------------------------
+
+
+--"Find all customers who ordered a bicycle helmet (IN)"
+
+SELECT CustomerID, CustFirstName, CustLastName 
+FROM Customers 
+WHERE Customers.CustomerID IN 
+(SELECT Orders.CustomerID FROM ((Orders 
+INNER JOIN Order_Details
+ON Orders.OrderNumber = Order_Details.OrderNumber) 
+INNER JOIN Products
+ON Products.ProductNumber = Order_Details.ProductNumber) 
+INNER JOIN Categories
+ON Categories.CategoryID = Products.CategoryID 
+WHERE Categories.CategoryDescription LIKE '%helmet%'); 
+
+----------------------------------------------------------
+
+
+--  What products have never been ordered? (NOT IN)
+
+SELECT Products.ProductName
+FROM Products
+WHERE Products.ProductNumber 
+NOT IN (SELECT Order_Details.ProductNumber
+		FROM Order_Details);
+
+
+
