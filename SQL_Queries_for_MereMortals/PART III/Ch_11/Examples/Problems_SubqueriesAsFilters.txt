@@ -61,5 +61,25 @@ WHERE Products.ProductNumber
 NOT IN (SELECT Order_Details.ProductNumber
 		FROM Order_Details);
 
+--- 
+
+-- "List customers who have booked entertainers who play country or country rock (IN)"
+
+
+SELECT Customers.CustomerID, Customers.CustFirstName, Customers.CustLastName 
+FROM Customers  
+WHERE Customers.CustomerID IN 
+(SELECT Engagements.CustomerID
+FROM ((Musical_Styles
+INNER JOIN Entertainer_Styles
+ON Musical_Styles.StyleID = Entertainer_Styles.StyleID)
+INNER JOIN Entertainers
+ON Entertainers.EntertainerID = Entertainer_Styles.EntertainerID)
+INNER JOIN Engagements
+ON Entertainers.EntertainerID = Engagements.EntertainerID
+WHERE Musical_Styles.StyleName = 'Country'
+OR Musical_Styles.StyleName = 'Country Rock');
+
+------
 
 
