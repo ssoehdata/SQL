@@ -24,3 +24,15 @@ WHERE Orders.CustomerID = Customers.CustomerID)
 AS CountOfOrders 
 FROM Customers
 ;
+
+----------------------------------------------------------------
+
+-- "Show me a list of customers and the last date on which they placed an order."
+
+SELECT Customers.CustFirstName, Customers.CustLastName,
+(SELECT MAX(OrderDate)
+FROM Orders 
+WHERE Orders.CustomerID = Customers.CustomerID)
+AS LastOrderDate
+FROM Customers
+;

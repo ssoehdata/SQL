@@ -80,6 +80,52 @@ ON Entertainers.EntertainerID = Engagements.EntertainerID
 WHERE Musical_Styles.StyleName = 'Country'
 OR Musical_Styles.StyleName = 'Country Rock');
 
-------
+----------------------------------------------------------------------------
+-- (Example below includes notes)
 
+--"Find the entertainers who played engagements for customers Bonnicksen or Rosales." (SOME)
+
+-- We are looking for the entertainers who played for either of these two customers.
+
+-- (Notation: "[]" represent steps in prob solving process)
+
+-- [] relevant tables required : Entertainers, Engagements,Customers
+
+-- -- []  get entertainer names (Entertainers table will suffice)
+SELECT Entertainers.EntertainerID, Entertainers.EntStageName
+FROM Entertainers
+-- [] engagements for customers Bonnicksen OR Rosales (will need Engagements & Customers Tables)
+--  filtering with SOME for cases EntertainerID is found in the subquery to be defined
+-- remember for SOME, ANY, only one value need be true. For ALL, all comparisons must be true for all 
+-- values 
+WHERE Entertainers.EntertainerID = SOME
+
+-- [] subquery to find engagments based on customer names(join Engagements and Customers Tables)
+-- create subquery filter joining the two tables
+(SELECT Engagements.EntertainerID
+FROM Customers
+INNER JOIN Engagements 
+ON Customers.CustomerID = Engagements.CustomerID
+-- [] filter with  WHERE clause  and OR to find customer names of interest
+WHERE Customers.CustLastName='Bonnicksen' 
+OR Customers.CustLastName='Rosales')
+;
+
+-- without the notes: 
+
+SELECT Entertainers.EntStageName, Entertainers.EntertainerID
+FROM Entertainers
+
+WHERE Entertainers.EntertainerID = SOME 
+(SELECT Engagements.EntertainerID
+FROM Customers 
+INNER JOIN Engagements
+ON Customers.CustomerID = Engagements.CustomerID
+
+WHERE Customers.CustLastName = 'Bonnicksen'
+OR 
+Customers.CustLastName = 'Rosales')
+;
+
+-------------------------------------------------------------
 

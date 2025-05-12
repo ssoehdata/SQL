@@ -1,0 +1,11 @@
+" Show me all the orders shipped on October 3, 2017, and each order's related customer last name."
+
+-- You can think of the second (SELECT ) statement as an other column expression that you are creating. 
+
+SELECT Orders.OrderNumber, Orders.OrderDate, Orders.Shipdate,
+(SELECT Customers.CustLastName
+FROM Customers
+WHERE Customers.CustomerId = Orders.CustomerID)
+FROM Orders 
+WHERE Orders.ShipDate = '2017-10-03'
+;
