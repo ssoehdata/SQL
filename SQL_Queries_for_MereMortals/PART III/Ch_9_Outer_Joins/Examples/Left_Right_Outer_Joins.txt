@@ -9,3 +9,30 @@ ON Recipe_Classes.RecipeClassID =
 ;
 
 ---------------------------
+
+-- "List all the recipe classes that do not yet have any recipes." 
+
+SELECT Recipe_Classes.RecipeClassDescription
+FROM Recipe_Classes
+LEFT OUTER JOIN Recipes 
+ON 
+Recipe_Classes.RecipeClassID = Recipes.RecipeClassID
+WHERE 
+Recipes.RecipeID IS NULL 
+;
+
+-----------------------------------------------------------------
+-- "USING" can be used for joining tables on equal values (if the matching columns 
+	--in the two tables have the same name- in this case RecipeClassID)
+
+-- "Display the recipe classes that do not yet have any recipes. (USING) "
+
+SELECT Recipe_Classes.RecipeClassDescription
+FROM Recipe_Classes 
+LEFT OUTER JOIN Recipes 
+USING (RecipeClassID)
+WHERE Recipes.RecipeID IS NULL
+;
+
+-------------------------------------------------
+
