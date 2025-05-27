@@ -1,0 +1,21 @@
+
+
+SELECT RCFiltered.RecipeClassDescription, R.RecipeTitle
+FROM 
+	(SELECT RecipeClassID, 
+	RecipeClassDescription  
+FROM Recipe_Classes AS RC
+WHERE RC.RecipeClassDescription = 'Salads'
+	OR RC.RecipeClassDescription = 'Soup'
+	OR RC. RecipeClassDescription= 'Main Course')
+	AS RCFiltered 
+LEFT OUTER JOIN Recipes AS R 
+ON RCFiltered.RecipeClassID = R.RecipeClassID
+;
+
+
+Note: 	Due to differences SQL implementations, although some support such searches in an ON clause,
+	some return incorrect values, or do not accept the syntax at all. 
+	If you want to filter the rows from an underlying table, do so with 
+      	a separate search condition in a WHERE clause in an embedded SELECT statement.
+
