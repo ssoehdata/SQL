@@ -1,0 +1,11 @@
+-- To produce ranks within groups of rows in a table using PARTITION BY and OVER clauses.
+
+SELECT  
+company,
+widget_output,
+RANK() OVER (ORDER BY widget_output DESC),
+DENSE_RANK() OVER (ORDER BY widget_output DESC)
+FROM widget_companies 
+ORDER BY widget_output DESC
+;
+-----------------------------------------------------------------
