@@ -1,0 +1,10 @@
+
+
+SELECT 
+	company,
+	widget_output,
+	rank() OVER(ORDER BY widget_output DESC),
+	dense_rank() OVER(ORDER BY widget_output DESC)
+FROM widget_companies 
+ORDER BY widget_output DESC
+;

@@ -1,0 +1,16 @@
+-- Linear Regression
+-- Y = bX + a
+-- Y is the predicted value
+-- b is the slope
+-- X is an independent variable (on the X axis)
+-- a is the y-intercept (where the line crosses the y-axis when the X value is zero)
+
+SELECT 
+	round(
+	regr_slope(median_hh_income, pct_bachelors_higher)::numeric, 2
+	) AS slope, 
+	round(
+		regr_intercept(median_hh_income, pct_bachelors_higher):: numeric, 2
+	) AS  y_intercept 
+FROM acs_2014_2018_stats
+;
