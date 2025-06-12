@@ -1,0 +1,15 @@
+-- using EXISTS clause to determine whether or not
+-- This is an an example of a correlated subquery - it inlcudes an expression in the 
+-- WHERE clause that requires data from the outer query. Because the subquery 
+-- is correlated , it will execute once for each row returned by the outer query, checking each
+-- time if an id in retirees matches emp_id in employees. If a match is found EXISTS returns true.
+
+SELECT  first_name, last_name
+FROM employees
+WHERE  EXISTS (
+	SELECT ID 
+	FROM retirees
+	WHERE ID = employees.emp_id)
+;
+
+-------------------------------------------------------
