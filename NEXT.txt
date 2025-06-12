@@ -1,3 +1,3 @@
-continue ch9 s.335 joins within joins
+continue ch9 s.335 joins within joins (MereMortals)
 
-cont. ch11 S.220 understanding subquery expressions
+cont. ch11 S.229 understanding subquery expressions (Practical SQL)
