@@ -19,3 +19,18 @@ Note: 	Due to differences SQL implementations, although some support such search
 	If you want to filter the rows from an underlying table, do so with 
       	a separate search condition in a WHERE clause in an embedded SELECT statement.
 
+%%%%%%%%%%%%%
+
+Alternate query to above 
+SELECT Recipe_Classes.RecipeClassDescription,
+	Recipes.RecipeTitle
+FROM Recipe_Classes 
+LEFT OUTER JOIN Recipes 
+ON Recipe_Classes.RecipeClassID = 
+	Recipes.RecipeClassID 
+AND 
+(Recipe_Classes.RecipeClassDescription = 'Salads'
+	OR Recipe_Classes.RecipeClassDescription = 'Soup'
+	OR Recipe_Classes.RecipeClassDescription = 'Main Course')
+AND Recipes.RecipeTitle  LIKE '%beef%'
+;
