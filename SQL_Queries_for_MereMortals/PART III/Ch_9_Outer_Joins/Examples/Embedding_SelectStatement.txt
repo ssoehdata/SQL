@@ -19,9 +19,9 @@ Note: 	Due to differences SQL implementations, although some support such search
 	If you want to filter the rows from an underlying table, do so with 
       	a separate search condition in a WHERE clause in an embedded SELECT statement.
 
-%%%%%%%%%%%%%
+--%%%%%%%%%%%%%
 
-Alternate query to above 
+--Alternate query to above 
 SELECT Recipe_Classes.RecipeClassDescription,
 	Recipes.RecipeTitle
 FROM Recipe_Classes 
